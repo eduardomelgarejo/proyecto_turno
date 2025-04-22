@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con Profesional</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Chat con tu Profesional</h1>
+    <form method="POST" action="{{ url_for('enviar_mensaje') }}">
+        <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+    </form>
+    <div id="chat">
+        {% for mensaje in mensajes %}
+        <p>{{ mensaje.usuario }}: {{ mensaje.contenido }}</p>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('panel_profesional') }}">Volver al panel del profesional</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Especialidad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Seleccionar Especialidad para Agendar Cita</h1>
+    <form action="{{ url_for('agendar_cita') }}" method="POST">
+        <label for="especialidad">Especialidad:</label>
+        <select name="especialidad" required>
+            <option value="Cardiología">Cardiología</option>
+            <option value="Pediatría">Pediatría</option>
+            <option value="Dermatología">Dermatología</option>
+            <option value="Oftalmología">Oftalmología</option>
+        </select>
+        <button type="submit">Seleccionar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Atenciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Historial de Atenciones Médicas</h1>
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Especialidad</th>
+            <th>Descripción</th>
+        </tr>
+        {% for atencion in historial %}
+        <tr>
+            <td>{{ atencion.fecha }}</td>
+            <td>{{ atencion.especialidad }}</td>
+            <td>{{ atencion.descripcion }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('panel_usuario') }}">Volver al panel de paciente</a>
+</body>
+</html>

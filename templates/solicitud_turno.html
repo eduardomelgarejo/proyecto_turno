@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Cambio de Turno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Solicitud de Cambio de Turno</h1>
+    <form action="{{ url_for('procesar_solicitud_turno') }}" method="POST">
+        <label for="nuevo_turno">Nuevo turno:</label>
+        <input type="datetime-local" name="nuevo_turno" required>
+        <button type="submit">Solicitar cambio</button>
+    </form>
+    <a href="{{ url_for('panel_usuario') }}">Volver al panel de paciente</a>
+</body>
+</html>

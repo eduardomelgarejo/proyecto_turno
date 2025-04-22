@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Turnos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Gestionar Turnos</h1>
+
+    <ul>
+        <li><a href="{{ url_for('main.agendar_turno') }}">Agendar Turno</a></li>
+        <li><a href="{{ url_for('main.panel_admin') }}">Volver al Panel de Administración</a></li>
+    </ul>
+
+    <h2>Lista de Turnos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Turno</th>
+                <th>Usuario (Profesional)</th>
+                <th>Fecha</th>
+                <th>Hora Entrada</th>
+                <th>Hora Salida</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turno in turnos %}
+            <tr>
+                <td>{{ turno.id_turno }}</td>
+                <td>{{ turno.usuario.nombre }}</td>
+                <td>{{ turno.fecha }}</td>
+                <td>{{ turno.hora_entrada }}</td>
+                <td>{{ turno.hora_salida }}</td>
+                <td>
+                    <a href="{{ url_for('main.eliminar_turno', id_turno=turno.id_turno) }}" 
+                       onclick="return confirm('¿Estás seguro de que deseas eliminar este turno?')">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Registrar nuevo usuario</h2>
+    <form method="POST">
+        <label>Nombre de usuario:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Contraseña:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Rol:</label><br>
+        <select name="role" required>
+            <option value="paciente">Paciente</option>
+            <option value="profesional">Profesional</option>
+            <option value="secretaria">Secretaria</option>
+            <option value="admin">Administrador</option>
+        </select><br><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <p>¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión</a></p>
+</body>
+</html>
